@@ -1,4 +1,5 @@
 var randomNumber = Math.floor(Math.random() * 99) + 1;
+
 var guesses = document.querySelector('#guesses');
 var lastResult = document.querySelector('#lastResult');
 var lowOrHi = document.querySelector('#lowOrHi');
@@ -10,6 +11,10 @@ var guessCount = 1;
 var resetButton = document.querySelector('#reset');
 resetButton.style.display = 'none';
 guessField.focus();
+
+var gamesWon = 0;
+var gamesLost = 0;
+var gameResults = document.querySelector('#gameResults');
 
 function checkGuess(){
     var userGuess = Number(guessField.value);
@@ -30,9 +35,11 @@ function checkGuess(){
 	    lastResult.innerHTML = 'Congratulations! You got it right!';
 	    lastResult.style.backgroundColor = 'green';
 	    lowOrHi.innerHTML = '';
+	    gamesWon++;
 	    setGameOver();
 	} else if (guessCount === 7) {
 	    lastResult.innerHTML = 'Sorry, you lost!';
+	    gamesLost++;
 	    setGameOver();
 	} else {
 	    lastResult.innerHTML = 'Wrong!';
@@ -56,6 +63,7 @@ function setGameOver() {
     guessSubmit.disabled = true;
     resetButton.style.display = 'inline';
     resetButton.addEventListener('click', resetGame);
+    gameResults.innerHTML = 'Games Won:' + gamesWon + 'Games Lost:' + gamesLost;
 }
 
 function resetGame() {
