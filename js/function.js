@@ -69,11 +69,11 @@ function setGameOver() {
 
 function resetGame() {
     guessCount = 1;
-    var resetParas = document.querySelectorAll('.resultParas p');
-    for (var i =0; i < resetParas.length; i++){
-	resetParas[i].textContent = '';
-    }
-    
+    //var resetParas = document.querySelectorAll('.resultParas p');
+    //for (var i =0; i < resetParas.length; i++){
+    //	resetParas[i].textContent = '';
+    //}
+    $('.resultParas p').text('');
     resetButton.style.display = 'none';
     
     guessField.disabled = false;
