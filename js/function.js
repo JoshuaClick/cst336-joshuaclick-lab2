@@ -15,6 +15,7 @@ guessField.focus();
 var gamesWon = 0;
 var gamesLost = 0;
 var gameResults = document.querySelector('#gameResults');
+gameResults.innerHTML = ' ';
 
 function checkGuess(){
     var userGuess = Number(guessField.value);
@@ -63,7 +64,7 @@ function setGameOver() {
     guessSubmit.disabled = true;
     resetButton.style.display = 'inline';
     resetButton.addEventListener('click', resetGame);
-    gameResults.innerHTML = 'Games Won:' + gamesWon + 'Games Lost:' + gamesLost;
+    gameResults.innerHTML = 'Won:' + gamesWon + ' Lost:' + gamesLost;
 }
 
 function resetGame() {
